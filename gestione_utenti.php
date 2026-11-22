@@ -1,6 +1,5 @@
-
 <?php
-require_once "tabella/config.php";
+require_once "app/config.php";
 
 if (isset($_POST["elimina"])) {
     $id = $_POST["id"];
@@ -22,10 +21,12 @@ $risultato = mysqli_query($link, "SELECT id, nome FROM utenza");
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <title>Gestione utenti</title>
 </head>
+
 <body>
 
     <h1>Gestione utenti</h1>
@@ -46,9 +47,9 @@ $risultato = mysqli_query($link, "SELECT id, nome FROM utenza");
                 <td>
                     <form method="post">
                         <input type="hidden" name="id"
-                               value="<?= $utente["id"] ?>">
+                            value="<?= $utente["id"] ?>">
                         <button type="submit" name="elimina"
-                                onclick="return confirm('Vuoi eliminare questo utente?')">
+                            onclick="return confirm('Vuoi eliminare questo utente?')">
                             Elimina
                         </button>
                     </form>
@@ -59,4 +60,5 @@ $risultato = mysqli_query($link, "SELECT id, nome FROM utenza");
     </table>
 
 </body>
+
 </html>
