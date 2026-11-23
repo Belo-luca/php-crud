@@ -34,7 +34,7 @@ CREATE TABLE `employees` (
   `name` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
   `salary` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `employees`
