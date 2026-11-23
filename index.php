@@ -63,6 +63,20 @@
                 <label for="signup-password-repeat">Ripeti la password</label>
                 <input type="password" id="signup-password-repeat" placeholder="Ripeti la password" required>
 
+                <label for="signup-crud">Scegli quello che vuoi fare</label>
+                <div>
+                    <input type="checkbox" id="modify" name="crud[]" value="modifica">
+                    <label for="modify">Modifica</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="create" name="crud[]" value="crea">
+                    <label for="create">Crea</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="delete" name="crud[]" value="elimina">
+                    <label for="delete">Elimina</label>
+                </div>
+
                 <div class="modal-actions">
                     <button type="button" class="cancel-button"
                         onclick="document.getElementById('signupModal').style.display='none'">Annulla</button>
@@ -94,7 +108,6 @@
             </div>
         </form>
     </div>
-
 
     <!-- Avvisi restituiti dopo un tentativo di accesso -->
     <?php if (isset($_GET["errore"]) && $_GET["errore"] === "password"): ?>
