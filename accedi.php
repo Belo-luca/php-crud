@@ -2,7 +2,7 @@
 
 //richiama il file per comunicare con il database
 require_once "app/config.php";
-
+session_start();
 //controllo per i vari utenti, se è anonimo, admin o un utente registrato
 if (isset($_POST["anonymous"])) {
     // Se l'utente ha scelto di accedere come anonimo, esegui la query per verificare se l'utente "Anonimo" esiste
@@ -60,6 +60,10 @@ if (isset($_POST["anonymous"])) {
     if ($utente !== null) {
         if (password_verify($password, $utente["password"])) {
             if ($utente["verifica"] == 1) {
+                $_SESSION["ID"] = $utente["ID"];
+                $_SESSION["nome"] = $utente["nome"];
+                $_SESSION["ruolo"] = $utente["ruolo"];
+
                 header("Location: employees/index.php");
                 exit;
             } else {
