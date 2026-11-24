@@ -16,7 +16,7 @@ if (isset($_POST["elimina"])) {
     mysqli_stmt_close($prepara);
 }
 
-$risultato = mysqli_query($link, "SELECT id, nome FROM utenza");
+$risultato = mysqli_query($link, "SELECT id, nome, verifica FROM utenza WHERE nome != 'Luca'");
 ?>
 
 <!DOCTYPE html>
