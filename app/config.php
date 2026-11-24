@@ -1,12 +1,21 @@
 <?php
+
+// Database configuration
+
 define('DB_SERVER', 'localhost');
+
 define('DB_USERNAME', 'root');
+
 define('DB_PASSWORD', '');
-define('DB_NAME', 'dipendenti');
- 
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
+
+define('DB_DATABASE', 'dipendenti');
+
+
+
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
 if($link === false){
-    die("ERRORE: Impossibile connettersi. " . mysqli_connect_error());
+
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+
 }
-?>
