@@ -6,19 +6,19 @@ session_start();
 //controllo per i vari utenti, se è anonimo, admin o un utente registrato
 if (isset($_POST["anonymous"])) {
     // Se l'utente ha scelto di accedere come anonimo, esegui la query per verificare se l'utente "Anonimo" esiste
-    $risultato = mysqli_query($link, "SELECT * FROM utenti WHERE nome = 'Anonimo'");
+    $risultato = mysqli_query($link, "SELECT * FROM utenza WHERE nome = 'Anonimo'");
 
     // Controlla se la query ha avuto successo e indirizza
     if ($risultato === false) {
-        die("Errore SQL: " . mysqli_error($link));
+        header("Location: index.php?errore=anonimo");
     }
     $utente = mysqli_fetch_assoc($risultato);
     if ($utente !== null) {
         header("Location: employees/index.php");
         exit;
     } else {
-        echo "Utente anonimo non trovato!";
-    }
+        header("Location: index.php?errore=anonimo");
+        }
 } else if (isset($_POST["admin"])) {
     // Se l'utente ha scelto di accedere come admin, esegui la query per verificare se l'utente "admin" esiste
     $nome = "admin";
@@ -60,10 +60,17 @@ if (isset($_POST["anonymous"])) {
     if ($utente !== null) {
         if (password_verify($password, $utente["password"])) {
             if ($utente["verifica"] == 1) {
+<<<<<<< HEAD
                 $_SESSION["ID"] = $utente["ID"];
                 $_SESSION["nome"] = $utente["nome"];
                 $_SESSION["ruolo"] = $utente["ruolo"];
 
+=======
+                session_regenerate_id(true);
+                $_SESSION["ID"] = $utente["ID"];
+                $_SESSION["nome"] = $utente["nome"];
+                $_SESSION["ruolo"] = $utente["ruolo"];
+>>>>>>> fc82671ee261ab233210e5a541102ab6558f9c48
                 header("Location: employees/index.php");
                 exit;
             } else {

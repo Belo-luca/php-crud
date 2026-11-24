@@ -63,16 +63,6 @@
                 <label for="signup-password-repeat">Ripeti la password</label>
                 <input type="password" id="signup-password-repeat" placeholder="Ripeti la password" required>
 
-                <div>
-                <label for="signup-ruolo">Ruolo</label>
-                <select id="signup-ruolo" name="ruolo" required>
-                    <option value="1">Utente (vedi)</option>
-                    <option value="2">Dipendente (vedi e aggiungi)</option>
-                    <option value="3">Admin (vedi, aggiungi e modifica)</option>
-                    <option value="4">Re del mondo (vedi, aggiungi, modifica e cancella)</option>
-                </select>
-                </div>
-
                 <div class="modal-actions">
                     <button type="button" class="cancel-button"
                         onclick="document.getElementById('signupModal').style.display='none'">Annulla</button>
@@ -105,7 +95,6 @@
         </form>
     </div>
 
-
     <!-- Avvisi restituiti dopo un tentativo di accesso -->
     <?php if (isset($_GET["errore"]) && $_GET["errore"] === "password"): ?>
         <script>
@@ -130,6 +119,11 @@
     <?php elseif (isset($_GET["errore"]) && $_GET["errore"] === "registrazione"): ?>
         <script>
             alert("Errore durante la registrazione!");
+            window.history.replaceState(null, "", window.location.pathname);
+        </script>
+    <?php elseif (isset($_GET["errore"]) && $_GET["errore"] === "anonimo"): ?>
+        <script>
+            alert("Utente anonimo inesistente!");
             window.history.replaceState(null, "", window.location.pathname);
         </script>
     <?php endif; ?>
