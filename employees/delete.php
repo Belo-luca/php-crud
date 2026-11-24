@@ -2,7 +2,7 @@
 // Elabora l'operazione di eliminazione dopo la conferma
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include il file di configurazione
-    require_once "config.php";
+    require_once __DIR__ . "/../app/config.php";
     
     // Prepara un'istruzione di eliminazione (DELETE)
     $sql = "DELETE FROM employees WHERE id = ?";

@@ -102,8 +102,5 @@ $ruolo = $_SESSION["ruolo"];
         </div>
     </div>
 </div>
-<footer style="text-align:center; margin-top:30px; color:#888; font-size:13px;">
-    © 2026 - Developed by Luca Belometti
-</footer>
 </body>
 </html>

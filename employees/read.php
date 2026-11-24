@@ -1,34 +1,34 @@
 <?php
-// Controlla l'esistenza del parametro id prima di procedere
+// Check existence of id parameter before processing further
 if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
-    // Include il file di configurazione
-    require_once "config.php";
+    // Include config file
+    require_once __DIR__ . "/../app/config.php";
     
-    // Prepara un'istruzione select
+    // Prepare a select statement
     $sql = "SELECT * FROM employees WHERE id = ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
-        // Associa le variabili all'istruzione preparata come parametri
+        // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "i", $param_id);
         
-        // Imposta i parametri
+        // Set parameters
         $param_id = trim($_GET["id"]);
         
-        // Tenta di eseguire l'istruzione preparata
+        // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             $result = mysqli_stmt_get_result($stmt);
     
             if(mysqli_num_rows($result) == 1){
-                /* Recupera la riga del risultato come array associativo. 
-                   Dato che c'è una sola riga, non serve il ciclo while */
+                /* Fetch result row as an associative array. Since the result set
+                contains only one row, we don't need to use while loop */
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 
-                // Recupera i valori dei singoli campi
+                // Retrieve individual field value
                 $name = $row["name"];
                 $address = $row["address"];
                 $salary = $row["salary"];
             } else{
-                // L'URL non contiene un ID valido. Reindirizza alla pagina di errore
+                // URL doesn't contain valid id parameter. Redirect to error page
                 header("location: error.php");
                 exit();
             }
@@ -38,17 +38,18 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         }
     }
      
-    // Chiude la dichiarazione
+    // Close statement
     mysqli_stmt_close($stmt);
     
-    // Chiude la connessione
+    // Close connection
     mysqli_close($link);
 } else{
-    // L'URL non contiene il parametro id. Reindirizza alla pagina di errore
+    // URL doesn't contain id parameter. Redirect to error page
     header("location: error.php");
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +57,10 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     <title>View Record</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .wrapper{ width: 600px; margin: 0 auto; }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>

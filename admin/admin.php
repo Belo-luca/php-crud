@@ -75,8 +75,10 @@ if ($risultato === false) {
                 </td>
             </tr>
         <?php } ?>
-
     </table>
+
+    <!-- Bottone per uscire -->
+    <button onclick="window.location.href='/php-crud/index.php'">Salva ed esci</button>
 
 </body>
 

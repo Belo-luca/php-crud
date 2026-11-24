@@ -60,17 +60,10 @@ if (isset($_POST["anonymous"])) {
     if ($utente !== null) {
         if (password_verify($password, $utente["password"])) {
             if ($utente["verifica"] == 1) {
-<<<<<<< HEAD
-                $_SESSION["ID"] = $utente["ID"];
-                $_SESSION["nome"] = $utente["nome"];
-                $_SESSION["ruolo"] = $utente["ruolo"];
-
-=======
                 session_regenerate_id(true);
                 $_SESSION["ID"] = $utente["ID"];
                 $_SESSION["nome"] = $utente["nome"];
                 $_SESSION["ruolo"] = $utente["ruolo"];
->>>>>>> fc82671ee261ab233210e5a541102ab6558f9c48
                 header("Location: employees/index.php");
                 exit;
             } else {

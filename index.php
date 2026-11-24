@@ -63,6 +63,14 @@
                 <label for="signup-password-repeat">Ripeti la password</label>
                 <input type="password" id="signup-password-repeat" placeholder="Ripeti la password" required>
 
+                <label for="signup-ruolo">Ruolo</label>
+                <select id="signup-ruolo" name="ruolo" required>
+                    <option value="1">Utente (vede)</option>
+                    <option value="2">Dipendente (vede, aggiungi)</option>
+                    <option value="3">Amministratore (vede, aggiunge, modifica)</option>
+                    <option value="4">Re del mondo(vede, aggiunge, modifica, elimina)</option>
+                </select>
+
                 <div class="modal-actions">
                     <button type="button" class="cancel-button"
                         onclick="document.getElementById('signupModal').style.display='none'">Annulla</button>

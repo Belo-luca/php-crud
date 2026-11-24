@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 21, 2026 alle 13:22
--- Versione del server: 12.2.2-MariaDB
+-- Creato il: Nov 24, 2026 alle 11:28
+-- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,9 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
--- Database: dipendenti
-CREATE DATABASE IF NOT EXISTS dipendenti;
-USE dipendenti;
+--
 -- Database: `dipendenti`
 --
 
@@ -28,6 +26,9 @@ USE dipendenti;
 --
 -- Struttura della tabella `employees`
 --
+
+CREATE DATABASE IF NOT EXISTS dipendenti;
+USE dipendenti;
 
 CREATE TABLE `employees` (
   `id` int(11) NOT NULL,
@@ -1053,17 +1054,20 @@ CREATE TABLE `utenza` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `verifica` tinyint(1) DEFAULT NULL
+  `verifica` tinyint(1) DEFAULT NULL,
+  `ruolo` varchar(30) NOT NULL DEFAULT 'utente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `utenza`
 --
 
-INSERT INTO `utenza` (`id`, `nome`, `password`, `verifica`) VALUES
-(5, 'Luca', '$2y$10$sYO2XNRyrLpjYrlqlZnbjunu0r0dBLs//zJjMCItlS4wLcWeK4f/u', 1),
-(6, 'Difra', '$2y$10$CD1aFrHfEhLyrbo4z0zG4.g.pPu851xqoJQ7yyTmfe56rFLOS1aPi', 1),
-(7, 'admin', '$2y$10$ZU9h6piaKzytiEW8bT5YDukbmkwm3nc4n1P/ptX2yQ2tKEoVYjGK.', 1);
+INSERT INTO `utenza` (`id`, `nome`, `password`, `verifica`, `ruolo`) VALUES
+(5, 'Luca', '$2y$10$sYO2XNRyrLpjYrlqlZnbjunu0r0dBLs//zJjMCItlS4wLcWeK4f/u', 1, 'utente'),
+(6, 'Difra', '$2y$10$CD1aFrHfEhLyrbo4z0zG4.g.pPu851xqoJQ7yyTmfe56rFLOS1aPi', 1, 'utente'),
+(7, 'admin', '$2y$10$ZU9h6piaKzytiEW8bT5YDukbmkwm3nc4n1P/ptX2yQ2tKEoVYjGK.', 1, 'utente'),
+(9, 'Abid', '$2y$10$w7.Yas4t5vVMT6DKeu/A/.yOghUwqVcVGLbaOAafefYBFtvhTuUQS', 0, '3'),
+(10, 'Emma', '$2y$10$pX/KMkJ1JXWsUMf1Q/de5.9mrOxWo9E5WirNKm07CLAg7l1dkGGSa', 1, '4');
 
 --
 -- Indici per le tabelle scaricate
@@ -1096,7 +1100,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT per la tabella `utenza`
 --
 ALTER TABLE `utenza`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
