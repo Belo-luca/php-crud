@@ -30,13 +30,14 @@ if (isset($_POST["id"], $_POST["azione"])) {
     exit;
 }
 
-// Carica gli utenti e il loro stato di accesso.
-$risultato = mysqli_query($link, "SELECT id, nome, verifica FROM utenza");
+// Carica gli utenti e il loro stato di accesso, escludendo l'utente "Luca".
+
+$risultato = mysqli_query($link, "SELECT id, nome, verifica FROM utenza WHERE nome != 'Luca' AND nome != 'admin'");
 if ($risultato === false) {
     die("Errore nel caricamento degli utenti: " . mysqli_error($link));
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="it">
 
