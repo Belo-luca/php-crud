@@ -1,8 +1,0 @@
- - grafici con chart.js per rappresentare gli utenti (stipendio medio...) http://chartjs.org/docs/latest/
- - filtro
- - registro delle modifiche
- - ricerca
- - filtro per admin
- - ricerca per admin
- - mutua esclusione nelle modifiche
- - interfaccia admin migliore (aggiungere css)

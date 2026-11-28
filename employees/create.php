@@ -5,6 +5,13 @@ require_once __DIR__ . "/../app/config.php";
 $name = $address = $salary = "";
 $name_err = $address_err = $salary_err = "";
  
+if (!isset($_SESSION["ruolo"])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+$ruolo = $_SESSION["ruolo"];
+
 // Elabora i dati del modulo quando viene inviato (metodo POST)
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     

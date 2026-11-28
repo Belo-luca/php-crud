@@ -2,6 +2,13 @@
 // Create a database connection
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
  
+if (!isset($_SESSION["ruolo"])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+$ruolo = $_SESSION["ruolo"];
+
 // Definisce le variabili e le inizializza con valori vuoti
 $name = $address = $salary = "";
 $name_err = $address_err = $salary_err = "";

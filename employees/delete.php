@@ -1,5 +1,13 @@
 <?php
 // Elabora l'operazione di eliminazione dopo la conferma
+
+if (!isset($_SESSION["ruolo"])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+$ruolo = $_SESSION["ruolo"];
+
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include il file di configurazione
     require_once __DIR__ . "/../app/config.php";
