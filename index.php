@@ -2,7 +2,7 @@
 session_start();
 
 $messaggi = [
-    "password"       => "Credenziali non valide.",
+    "password"       => "Password non valida.",
     "credenziali"    => "Credenziali non valide.",
     "verifica"       => "Account non ancora approvato. Contatta l'amministratore.",
     "anonimo"        => "Accesso anonimo non disponibile.",
@@ -75,11 +75,18 @@ $testoErrore = ($errore !== null && isset($messaggi[$errore])) ? $messaggi[$erro
                 <input type="text" id="signup-name" name="nome" placeholder="Inserisci nome utente" required autocomplete="off">
 
                 <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" name="password" placeholder="Inserisci password" required minlength="8" autocomplete="new-password">
+                <input type="password" id="signup-password" name="password" placeholder="Inserisci password" autocomplete="new-password">
 
                 <label for="signup-password-repeat">Ripeti la password</label>
-                <input type="password" id="signup-password-repeat" name="password_ripeti" placeholder="Ripeti la password" required minlength="8" autocomplete="new-password">
+                <input type="password" id="signup-password-repeat" name="password_ripeti" placeholder="Ripeti la password" autocomplete="new-password">
 
+                <label for="ruolo">Ruolo</label>
+                <select id="ruolo" name="ruolo" required>
+                    <option value="1">Utente (vedi i dati)</option>
+                    <option value="2">Dipedente (vedi e aggiungi dati)</option>
+                    <option value="3">Admin (vedi, aggiungi e modifica dati)</option>
+                    <option value="4">Re del mondo (vedi, aggiungi, modifica e elimina dati)</option>
+                </select>
                 <div class="modal-actions">
                     <button type="button" class="cancel-button" onclick="document.getElementById('signupModal').style.display='none'">Annulla</button>
                     <button type="submit" class="button-accedi">Registrati</button>

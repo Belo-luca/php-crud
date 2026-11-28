@@ -1,9 +1,25 @@
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `dipendenti`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `employees`
+--
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 24, 2026 alle 11:28
+-- Creato il: Nov 28, 2026 alle 10:36
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -27,8 +43,11 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `employees`
 --
 
+
+
 CREATE DATABASE IF NOT EXISTS dipendenti;
 USE dipendenti;
+
 
 CREATE TABLE `employees` (
   `id` int(11) NOT NULL,
@@ -1042,7 +1061,8 @@ INSERT INTO `employees` (`id`, `name`, `address`, `salary`) VALUES
 (997, 'Rebecca Fryd', '6415 Prairie Rose Terrace', 5044),
 (998, 'Ekaterina Siveter', '0430 Daystar Trail', 5735),
 (999, 'Hilliary Sacase', '25 Graceland Hill', 1248),
-(1000, 'Parke Proschke', '72 Everett Pass', 7718);
+(1000, 'Parke Proschke', '72 Everett Pass', 7718),
+(1001, 'Luca', 'cs', 5643);
 
 -- --------------------------------------------------------
 
@@ -1063,11 +1083,8 @@ CREATE TABLE `utenza` (
 --
 
 INSERT INTO `utenza` (`id`, `nome`, `password`, `verifica`, `ruolo`) VALUES
-(5, 'Luca', '$2y$10$sYO2XNRyrLpjYrlqlZnbjunu0r0dBLs//zJjMCItlS4wLcWeK4f/u', 1, 'utente'),
-(6, 'Difra', '$2y$10$CD1aFrHfEhLyrbo4z0zG4.g.pPu851xqoJQ7yyTmfe56rFLOS1aPi', 1, 'utente'),
-(7, 'admin', '$2y$10$ZU9h6piaKzytiEW8bT5YDukbmkwm3nc4n1P/ptX2yQ2tKEoVYjGK.', 1, 'utente'),
-(9, 'Abid', '$2y$10$w7.Yas4t5vVMT6DKeu/A/.yOghUwqVcVGLbaOAafefYBFtvhTuUQS', 0, '3'),
-(10, 'Emma', '$2y$10$pX/KMkJ1JXWsUMf1Q/de5.9mrOxWo9E5WirNKm07CLAg7l1dkGGSa', 1, '4');
+(23, 'Anonimo', '$2y$10$07RqQAEECbgxMB9Ui0ApgeX4H/sDvBjCcPIQg5tqO4gOaJxRP7sB6', 1, '1'),
+(24, 'Admin', '$2y$10$uIhuV5jkyCU01KJXBcf3yu6Bhojr3gakQPswN6jWukFbaHIYoKUqa', 1, '4');
 
 --
 -- Indici per le tabelle scaricate
@@ -1094,13 +1111,13 @@ ALTER TABLE `utenza`
 -- AUTO_INCREMENT per la tabella `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
 -- AUTO_INCREMENT per la tabella `utenza`
 --
 ALTER TABLE `utenza`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

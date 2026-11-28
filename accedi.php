@@ -63,7 +63,7 @@ if (isset($_POST["login"])) {
         vaiA("credenziali");
     }
 
-    $stmt = mysqli_prepare($link, "SELECT id, nome, password, verifica, ruolo FROM utenza WHERE nome = ? LIMIT 1");
+    $stmt = mysqli_prepare($link, "SELECT id, nome, password, verifica, ruolo FROM utenza WHERE nome = ?");
     if (!$stmt) {
         error_log("Errore SQL login: " . mysqli_error($link));
         vaiA("server");
@@ -96,7 +96,7 @@ if (isset($_POST["login"])) {
 // ============ LOGIN ANONIMO ============
 if (isset($_POST["anonymous"])) {
 
-    $stmt = mysqli_prepare($link, "SELECT id, nome, ruolo FROM utenza WHERE nome = ? LIMIT 1");
+    $stmt = mysqli_prepare($link, "SELECT id, nome, ruolo FROM utenza WHERE nome = ?");
     if (!$stmt) {
         error_log("Errore SQL anonimo: " . mysqli_error($link));
         vaiA("server");
